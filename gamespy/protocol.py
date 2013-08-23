@@ -42,7 +42,6 @@ class Gamespy(ConnectedDatagramProtocol):
                                          int(time.time())))
 
     def send_request(self):
-        print("token: {0}".format(self.__token__))
         self.transport.write(struct.pack("!3Bii4B", 0xFE, 0xFD, 0x00,
                                          int(time.time()), int(self.__token__),
                                          0xFF, 0xFF, 0xFF, 0x01))
